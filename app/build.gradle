@@ -21,4 +21,6 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    //Added github api jar
+    compile files('libs/github-api-1.50.jar')
 }
