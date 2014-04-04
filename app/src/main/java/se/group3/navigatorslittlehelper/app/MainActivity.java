@@ -4,16 +4,33 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
 import org.kohsuke.github.*;
 
+import java.io.IOException;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends ActionBarActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView testGitConnection = (TextView)findViewById(R.id.testGitConnection);
+
+        /*
+        try {
+            GitHub github = GitHub.connect();
+            //https://github.com/Qw4z1/agilegroup3
+            GHRepository repo = github.getRepository("https://github.com/Qw4z1/agilegroup3");
+            testGitConnection.setText("Name:" + repo.getName());
+        }
+        catch(IOException e){
+            System.err.println("Caught IOException: " + e.getMessage());
+        }
+        */
 
     }
 
