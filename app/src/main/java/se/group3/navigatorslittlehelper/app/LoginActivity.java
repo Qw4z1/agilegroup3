@@ -1,5 +1,6 @@
 package se.group3.navigatorslittlehelper.app;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -74,6 +75,9 @@ public class LoginActivity extends ActionBarActivity{
                 return;
             }
             Toast.makeText(LoginActivity.this, "Login succeeded.", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
     }
 }

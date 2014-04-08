@@ -5,12 +5,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.kohsuke.github.GitHub;
+
+import java.io.IOException;
+
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            GitHub github = GitHub.connect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
