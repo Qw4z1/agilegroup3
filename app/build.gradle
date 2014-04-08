@@ -16,9 +16,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
+    compile 'org.kohsuke:github-api:1.50'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

@@ -70,8 +70,15 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="jackson-core-2.2.3" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-19.0.1" level="project" />
+    <orderEntry type="library" exported="" name="jackson-databind-2.2.3" level="project" />
+    <orderEntry type="library" exported="" name="jackson-annotations-2.2.3" level="project" />
+    <orderEntry type="library" exported="" name="commons-codec-1.7" level="project" />
+    <orderEntry type="library" exported="" name="commons-lang-2.6" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
+    <orderEntry type="library" exported="" name="github-api-1.50" level="project" />
+    <orderEntry type="library" exported="" name="commons-io-1.4" level="project" />
   </component>
 </module>
 
