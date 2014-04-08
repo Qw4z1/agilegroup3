@@ -14,3 +14,8 @@
         android:layout_height="wrap_content" />
 
 </RelativeLayout>
+
+    <!--
+    https://developer.android.com/design/patterns/navigation-drawer.html
+    http://developer.android.com/training/implementing-navigation/nav-drawer.html
+    -->
