@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Commit Message");
         drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_download, "Pull Request");
         drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Issue Tracker");
-        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_action_settings2, "Settings");
+        drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_action_settings, "Settings");
         //Create DrawerItemCustomAdapter and pass drawer items to it
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
         //Set adapter
