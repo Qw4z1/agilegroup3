@@ -37,10 +37,11 @@ public class MainActivity extends ActionBarActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         //Setup object drawer items based on the items added in res/drawable-hdpi
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Create");
-        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Read");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Help");
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
+        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Branch");
+        drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Commit Message");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Issue Tracker");
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_action_settings2, "Settings");
         //Create DrawerItemCustomAdapter and pass drawer items to it
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
         //Set adapter
@@ -124,13 +125,16 @@ public class MainActivity extends ActionBarActivity {
 
         switch (position) {
             case 0:
-                fragment = new CreateFragment();
+                fragment = new BranchFragment();
                 break;
             case 1:
-                fragment = new ReadFragment();
+                fragment = new CommitMessageFragment();
                 break;
             case 2:
-                fragment = new HelpFragment();
+                fragment = new IssueTrackerFragment();
+                break;
+            case 3:
+                fragment = new SettingsFragment();
                 break;
 
             default:

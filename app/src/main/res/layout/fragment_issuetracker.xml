@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Create View"
+        android:text="Issue tracker View"
         android:textSize="16dp" />
 
     <ImageView
@@ -17,6 +17,6 @@
         android:layout_below="@id/txtLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:src="@drawable/ic_action_copy" />
+        android:src="@drawable/ic_action_share" />
 
 </RelativeLayout>
