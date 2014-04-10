@@ -38,9 +38,9 @@ public class MainActivity extends ActionBarActivity {
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         //Setup object drawer items based on the items added in res/drawable-hdpi
         ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
-        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Branch");
+        drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_action_share, "Branch");
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_action_refresh, "Commit Message");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_share, "Issue Tracker");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_action_copy, "Issue Tracker");
         drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_action_settings2, "Settings");
         //Create DrawerItemCustomAdapter and pass drawer items to it
         DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.listview_item_row, drawerItem);
