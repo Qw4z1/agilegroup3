@@ -7,5 +7,7 @@
     <string name="login_button">Login</string>
     <string name="password_hint">Password</string>
     <string name="username_hint">User name</string>
+    <string name="login_forgot_password">Forgot password</string>
+    <string name="github_forgot_password_string">https://github.com/sessions/forgot_password</string>
 
 </resources>
