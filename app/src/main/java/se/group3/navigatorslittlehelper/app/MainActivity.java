@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
+    private CharSequence mTitle; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
