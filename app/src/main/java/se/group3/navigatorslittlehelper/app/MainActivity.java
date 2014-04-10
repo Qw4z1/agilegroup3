@@ -17,6 +17,8 @@ import org.kohsuke.github.GitHub;
 
 import java.io.IOException;
 
+import se.group3.navigatorslittlehelper.app.adapter.DrawerItemCustomAdapter;
+
 public class MainActivity extends ActionBarActivity {
     //NavigationDrawer variables
     private String[] mNavigationDrawerItemTitles;
@@ -24,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
-    private CharSequence mTitle; 
+    private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

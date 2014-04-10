@@ -1,7 +1,8 @@
-package se.group3.navigatorslittlehelper.app;
+package se.group3.navigatorslittlehelper.app.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +10,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
+import se.group3.navigatorslittlehelper.app.ObjectDrawerItem;
+import se.group3.navigatorslittlehelper.app.R;
+
+/**
+ * Created by Sam on 2014-04-10.
+ */
+public class CommitMessageItemCustomAdapter extends ArrayAdapter<String> {
 
     Context mContext;
     int layoutResourceId;
-    ObjectDrawerItem data[] = null;
+    String data[] = null;
 
-    public DrawerItemCustomAdapter(Context mContext, int layoutResourceId, ObjectDrawerItem[] data) {
+    public CommitMessageItemCustomAdapter(Context mContext, int layoutResourceId, String[] data) {
 
         super(mContext, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
@@ -27,20 +34,16 @@ public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         View listItem = convertView;
-
         LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
         listItem = inflater.inflate(layoutResourceId, parent, false);
 
-        ImageView imageViewIcon = (ImageView) listItem.findViewById(R.id.imageViewIcon);
-        TextView textViewName = (TextView) listItem.findViewById(R.id.textViewName);
+        TextView textView = (TextView) listItem.findViewById(R.id.commit_message_list_item);
 
-        ObjectDrawerItem folder = data[position];
-
-
-        imageViewIcon.setImageResource(folder.icon);
-        textViewName.setText(folder.name);
+        String text = data[position];
+        textView.setText(text);
 
         return listItem;
     }
+
 
 }
