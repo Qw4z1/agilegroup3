@@ -14,7 +14,7 @@ public class IssueTrackerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_issuetracker, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_issue_tracker, container, false);
 
         return rootView;
     }

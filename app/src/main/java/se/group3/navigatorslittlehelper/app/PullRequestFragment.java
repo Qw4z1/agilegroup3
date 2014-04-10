@@ -6,15 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CommitMessageFragment extends Fragment {
+public class PullRequestFragment extends Fragment {
 
-    public CommitMessageFragment() {
+    public PullRequestFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_commit_message, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pull_request, container, false);
 
         return rootView;
     }
