@@ -14,7 +14,8 @@
         android:hint="@string/username_hint"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/login_username_edittext"/>
+        android:id="@+id/login_username_edittext"
+        android:singleLine="true"/>
 
 
     <EditText
