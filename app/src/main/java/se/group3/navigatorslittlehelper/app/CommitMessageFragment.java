@@ -8,9 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+import java.util.LinkedList;
 
 import se.group3.navigatorslittlehelper.app.adapter.CommitMessageItemCustomAdapter;
+import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageItem;
 
 public class CommitMessageFragment extends Fragment {
 
@@ -25,34 +29,33 @@ public class CommitMessageFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_commit_message, container, false);
         listview = (ListView) rootView.findViewById(R.id.commit_message_list_view);
 
-        String[] listnames = new String[5];
-        listnames[0] = new String("Commit Message 1");
-        listnames[1] = new String("Commit Message 2");
-        listnames[2] = new String("Commit Message 3");
-        listnames[3] = new String("Commit Message 4");
-        listnames[4] = new String("Commit Message 5");
+        ArrayList<ObjectCommitMessageItem> commitlist = new ArrayList<ObjectCommitMessageItem>();
+        commitlist.add(new ObjectCommitMessageItem("Commit message 1","Author 1",new Date(114, 3, 11, 8, 20, 20)));
+        commitlist.add(new ObjectCommitMessageItem("Commit message 2","Author 2",new Date(114, 3, 11, 6, 20, 20)));
+        commitlist.add(new ObjectCommitMessageItem("Commit message 3","Author 3",new Date(114, 3, 11, 4, 20, 20)));
+        commitlist.add(new ObjectCommitMessageItem("Commit message 4","Author 4",new Date(114, 3, 11, 9, 20, 20)));
 
-        adapter = new CommitMessageItemCustomAdapter(rootView.getContext(), R.layout.commit_message_list_item, listnames);
+        adapter = new CommitMessageItemCustomAdapter(getActivity(), R.layout.commit_message_list_item, commitlist);
         listview.setAdapter(adapter);
 
         return rootView;
     }
 
-    public void addListItem(String s){
+    public void addListItem(ObjectCommitMessageItem s){
         adapter.add(s);
-        this.updateList();;
+        this.updateList();
     }
-    public void addListItems(Collection <String> s){
+    public void addListItems(ArrayList<ObjectCommitMessageItem> s){
         adapter.addAll(s);
         this.updateList();
     }
-    public void removeListItem(String s){
+    public void removeListItem(ObjectCommitMessageItem s){
         adapter.remove(s);
         this.updateList();
     }
-    public void removeListItems(Collection <String> sc){
-        for (String s : sc){
-            adapter.remove(s);
+    public void removeListItems(ArrayList<ObjectCommitMessageItem> s){
+        for (ObjectCommitMessageItem m : s){
+            adapter.remove(m);
         }
     }
 

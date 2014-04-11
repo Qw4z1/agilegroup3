@@ -1,4 +1,4 @@
-package se.group3.navigatorslittlehelper.app;
+package se.group3.navigatorslittlehelper.app.adapterobjects;
 
 
 public class ObjectDrawerItem {

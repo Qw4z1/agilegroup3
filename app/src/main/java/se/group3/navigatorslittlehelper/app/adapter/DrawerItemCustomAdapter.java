@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import se.group3.navigatorslittlehelper.app.ObjectDrawerItem;
+import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectDrawerItem;
 import se.group3.navigatorslittlehelper.app.R;
 
 public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
