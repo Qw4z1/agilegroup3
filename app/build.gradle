@@ -5,7 +5,7 @@ android {
     buildToolsVersion "19.0.3"
 
     defaultConfig {
-        minSdkVersion 8
+        minSdkVersion 14
         targetSdkVersion 19
         versionCode 1
         versionName "1.0"
@@ -29,5 +29,6 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'org.kohsuke:github-api:1.50'
+    compile 'com.android.support:support-v4:19.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
