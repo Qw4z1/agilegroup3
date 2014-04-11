@@ -7,11 +7,11 @@
                 android:background="@android:color/white">
 
 
+
     <EditText
         android:layout_width="@dimen/login_widget_width"
         android:layout_height="wrap_content"
         android:hint="@string/username_hint"
-        android:layout_weight="1"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/login_username_edittext"/>
@@ -46,8 +46,8 @@
         android:layout_centerHorizontal="true"/>
 
     <ImageView
-        android:layout_width="@dimen/login_widget_width"
-        android:layout_height="@dimen/login_widget_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/ic_github_logo"
         android:layout_above="@+id/login_username_edittext"
@@ -55,4 +55,11 @@
         android:layout_alignStart="@+id/login_username_edittext"
         android:layout_alignRight="@+id/login_username_edittext"
         android:layout_alignEnd="@+id/login_username_edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"/>
 </RelativeLayout>
