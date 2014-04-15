@@ -16,6 +16,7 @@ import android.widget.ListView;
 import org.kohsuke.github.GitHub;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class MainActivity extends ActionBarActivity {
     //NavigationDrawer variables
@@ -74,11 +75,19 @@ public class MainActivity extends ActionBarActivity {
         getActionBar().setHomeButtonEnabled(true);
 
 
-        try {
+        /*try {
             GitHub github = GitHub.connect();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
+        //This is how you do network related stuff, not allowed on main thread
+        /*Thread thread = new Thread() {
+            @Override
+            public void run() {
+                System.out.println(Arrays.toString(GitHubHandler.getInstance().getAllRepositories().keySet().toArray()));
+            }
+        };
+        thread.start();*/
     }
 
 

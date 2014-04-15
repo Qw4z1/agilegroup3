@@ -72,14 +72,15 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
 
         @Override
         protected Boolean doInBackground(String... params) {
-            boolean returnValue;
+           return GitHubHandler.getInstance().connectUsingPassword(params[0],params[1]);
+           /* boolean returnValue;
             try {
                 GitHub github = GitHub.connectUsingPassword(params[0], params[1]);
                 returnValue = github.isCredentialValid();
             } catch (IOException e) {
                 return false;
             }
-            return returnValue;
+            return returnValue;*/
         }
 
         @Override
