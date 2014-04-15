@@ -1,4 +1,4 @@
-package se.group3.navigatorslittlehelper.app;
+package se.group3.navigatorslittlehelper.app.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectDrawerItem;
+import se.group3.navigatorslittlehelper.app.R;
 
 public class DrawerItemCustomAdapter extends ArrayAdapter<ObjectDrawerItem> {
 
