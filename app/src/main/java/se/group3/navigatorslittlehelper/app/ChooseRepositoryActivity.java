@@ -1,6 +1,7 @@
 package se.group3.navigatorslittlehelper.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +24,8 @@ import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 public class ChooseRepositoryActivity extends Activity {
     private ChooseRepositoryCustomAdapter adapter;
     private ListView listview;
-    private Map<String,GHRepository> repomap;
+    private ArrayList<String> repostringlist = new ArrayList<String>();
+    private ArrayList<GHRepository> repoobjectlist = new ArrayList<GHRepository>();
 
 
     @Override
@@ -38,23 +40,30 @@ public class ChooseRepositoryActivity extends Activity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //GitHubHandler.getInstance().setRepository(repomap.get(i));
-                //System.out.println(repomap.get(i)); //Does not work i=int, expected string
+                System.out.println("String at "+i+": "+repostringlist.get(i));
+                System.out.println("Object at "+i+": "+repoobjectlist.get(i));
+                GitHubHandler.getInstance().setRepository(repoobjectlist.get(i));
+                Intent intent = new Intent(ChooseRepositoryActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 
         Thread thread = new Thread() {
             @Override
             public void run() {
-                repomap = GitHubHandler.getInstance().getAllRepositories();
-                final ArrayList<ObjectChooseRepositoryItem> repolist = new ArrayList<ObjectChooseRepositoryItem>();
-                for (String s : repomap.keySet()){
-                    repolist.add(new ObjectChooseRepositoryItem(s));
+                Map<String,GHRepository> repomap = GitHubHandler.getInstance().getAllRepositories();
+                repostringlist.addAll(repomap.keySet());
+                repoobjectlist.addAll(repomap.values());
+
+                final ArrayList<ObjectChooseRepositoryItem> repoitems = new ArrayList<ObjectChooseRepositoryItem>();
+                for (String s : repostringlist){
+                    repoitems.add(new ObjectChooseRepositoryItem(s));
                 }
                 runOnUiThread(new Runnable(){
                     @Override
                     public void run(){
-                        addListItems(repolist);
+                        addListItems(repoitems);
                     }
                 });
             }
