@@ -4,7 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.kohsuke.github.GHRepository;
 
@@ -32,6 +35,14 @@ public class ChooseRepositoryActivity extends Activity {
         adapter = new ChooseRepositoryCustomAdapter(this, R.layout.choose_repository_list_item, new ArrayList<ObjectChooseRepositoryItem>());
         listview.setAdapter(adapter);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //GitHubHandler.getInstance().setRepository(repomap.get(i));
+                //System.out.println(repomap.get(i)); //Does not work i=int, expected string
+            }
+        });
+
         Thread thread = new Thread() {
             @Override
             public void run() {
@@ -50,6 +61,7 @@ public class ChooseRepositoryActivity extends Activity {
         };
         thread.start();
     }
+
 
     public void addListItems(ArrayList<ObjectChooseRepositoryItem> a){
         adapter.addAll(a);

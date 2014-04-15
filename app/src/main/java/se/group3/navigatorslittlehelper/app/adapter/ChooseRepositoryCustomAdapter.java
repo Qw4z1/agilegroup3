@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -33,8 +35,8 @@ public class ChooseRepositoryCustomAdapter extends ArrayAdapter<ObjectChooseRepo
 
         TextView repolabel = (TextView) listItem.findViewById(R.id.choose_repository_reponame);
         String reponame = data.get(position).reponame;
-
         repolabel.setText(reponame);
+
         return listItem;
     }
 
