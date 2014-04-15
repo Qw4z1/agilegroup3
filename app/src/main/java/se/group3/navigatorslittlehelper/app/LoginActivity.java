@@ -11,9 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.kohsuke.github.GitHub;
-
-import java.io.IOException;
+import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 
 /**
  * Created by qw4z1 on 4/8/14.
@@ -90,7 +88,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
                 return;
             }
             Toast.makeText(LoginActivity.this, "Login succeeded.", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, ChooseRepositoryActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         }

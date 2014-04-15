@@ -1,14 +1,12 @@
-package se.group3.navigatorslittlehelper.app;
+package se.group3.navigatorslittlehelper.app.handler;
 
 
 import android.util.Log;
 
-import org.kohsuke.github.GHMyself;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class GitHubHandler {
