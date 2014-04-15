@@ -28,12 +28,8 @@ public class ChooseRepositoryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_repository);
 
-        ArrayList<ObjectChooseRepositoryItem> testrepolist = new ArrayList<ObjectChooseRepositoryItem>();
-        testrepolist.add(new ObjectChooseRepositoryItem("Repository 1"));
-        testrepolist.add(new ObjectChooseRepositoryItem("Repository 2"));
-
         listview = (ListView) findViewById(R.id.choose_repository_list_view);
-        adapter = new ChooseRepositoryCustomAdapter(this, R.layout.choose_repository_list_item, testrepolist);
+        adapter = new ChooseRepositoryCustomAdapter(this, R.layout.choose_repository_list_item, new ArrayList<ObjectChooseRepositoryItem>());
         listview.setAdapter(adapter);
 
         Thread thread = new Thread() {
@@ -55,19 +51,19 @@ public class ChooseRepositoryActivity extends Activity {
         thread.start();
     }
 
-    public void addListItems(ArrayList<ObjectChooseRepositoryItem> s){
-        adapter.addAll(s);
+    public void addListItems(ArrayList<ObjectChooseRepositoryItem> a){
+        adapter.addAll(a);
         this.updateList();
     }
-    public void removeListItems(ArrayList<ObjectChooseRepositoryItem> s){
-        for (ObjectChooseRepositoryItem i : s){
+    public void removeListItems(ArrayList<ObjectChooseRepositoryItem> a){
+        for (ObjectChooseRepositoryItem i : a){
             adapter.remove(i);
         }
         this.updateList();
     }
     private void updateList(){
-        adapter.clear();
+        //adapter.clear();
         adapter.notifyDataSetChanged();
-        listview.invalidateViews();
+        //listview.invalidateViews();
     }
 }

@@ -34,7 +34,7 @@ public class ChooseRepositoryCustomAdapter extends ArrayAdapter<ObjectChooseRepo
         TextView repolabel = (TextView) listItem.findViewById(R.id.choose_repository_reponame);
         String reponame = data.get(position).reponame;
 
-        repolabel.setText("Repository: "+reponame);
+        repolabel.setText(reponame);
         return listItem;
     }
 

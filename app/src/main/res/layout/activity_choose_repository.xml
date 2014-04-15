@@ -1,10 +1,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Repositories"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/choose_repository_header"
+        android:paddingLeft="5dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textSize="24dp"
+        android:clickable="false"/>
+
+    <!-- How do you do a separating line??? -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_below="@+id/choose_repository_header"
+        android:id="@+id/black_line"/>
+
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/choose_repository_list_view">
+        android:id="@+id/choose_repository_list_view"
+        android:layout_below="@+id/black_line">
     </ListView>
+
 </RelativeLayout>
