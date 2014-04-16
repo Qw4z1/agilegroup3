@@ -4,7 +4,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your Repositories"
+        android:text="Choose Repository"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/choose_repository_header"
         android:paddingLeft="5dp"

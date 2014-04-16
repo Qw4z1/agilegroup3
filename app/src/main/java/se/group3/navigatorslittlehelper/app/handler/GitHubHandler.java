@@ -54,6 +54,9 @@ public class GitHubHandler {
     public void setRepository(GHRepository repo){
         this.repo = repo;
     }
+    public GHRepository getRepository(){
+        return repo;
+    }
 
 }
 

@@ -52,6 +52,8 @@ public class ChooseRepositoryActivity extends Activity {
         Thread thread = new Thread() {
             @Override
             public void run() {
+                repostringlist.clear();
+                repoobjectlist.clear();
                 Map<String,GHRepository> repomap = GitHubHandler.getInstance().getAllRepositories();
                 repostringlist.addAll(repomap.keySet());
                 repoobjectlist.addAll(repomap.values());

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -47,20 +48,11 @@ public class CommitMessageItemCustomAdapter extends ArrayAdapter<ObjectCommitMes
         Date time = data.get(position).time;
 
 
-        descriptionlabel.setText("Description: "+description);
+        descriptionlabel.setText(description);
         authorlabel.setText("Author: "+author);
-        String month,day;
-        if(time.getMonth() < 10){
-            month = "0"+time.getMonth();
-        }else{
-            month = ""+time.getMonth();
-        }
-        if(time.getDay() < 10){
-            day = "0"+time.getDay();
-        }else{
-            day = ""+time.getDay();
-        }
-        timelabel.setText(time.getYear()+1900+"-"+month+"-"+day);
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
+        timelabel.setText(sdf.format(time));
+
         return listItem;
     }
 
