@@ -71,14 +71,15 @@ public class CommitMessageFragment extends Fragment {
     }
 
 
-    public void addListItems(ArrayList<ObjectCommitMessageItem> s){
+    private void addListItems(ArrayList<ObjectCommitMessageItem> s){
         adapter.addAll(s);
         this.updateList();
     }
-    public void removeListItems(ArrayList<ObjectCommitMessageItem> s){
+    private void removeListItems(ArrayList<ObjectCommitMessageItem> s){
         for (ObjectCommitMessageItem m : s){
             adapter.remove(m);
         }
+        this.updateList();
     }
 
     private void updateList(){
