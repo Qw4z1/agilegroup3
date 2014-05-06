@@ -15,6 +15,7 @@ public class GitHubHandler {
     private static GitHubHandler instance = null;
     private static GitHub github = null;
     private static GHRepository repo = null;
+    private static GHBranch branch = null;
 
     private GitHubHandler() { }
 
@@ -87,6 +88,13 @@ public class GitHubHandler {
             }
         }
     }
+    public void setBranch(GHBranch branch){
+        this.branch = branch;
+    }
+    public GHBranch getBranch(){
+        return this.branch;
+    }
+
 
 }
 
