@@ -3,6 +3,8 @@ package se.group3.navigatorslittlehelper.app.handler;
 
 import android.util.Log;
 
+import org.kohsuke.github.GHBranch;
+import org.kohsuke.github.GHCommit;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 
@@ -56,6 +58,34 @@ public class GitHubHandler {
     }
     public GHRepository getRepository(){
         return repo;
+    }
+    public Map<String,GHBranch> getBranches(){
+        if(repo == null){
+            Log.e("GitHubHandler", "repo == null, when fetching branches");
+            return null;
+        }else{
+            Map<String,GHBranch> map;
+            try {
+                map = repo.getBranches();
+            }catch(IOException e){
+                Log.e("GitHubHandler", "IOException when getting all branches");
+                return null;
+            }
+            return map;
+        }
+    }
+    public GHCommit getCommitBySHA1(String SHA1){
+        if(repo == null){
+            Log.e("GitHubHandler", "repo == null, when getting commit from SHA1");
+            return null;
+        }else{
+            try{
+                return repo.getCommit(SHA1);
+            }catch (IOException e){
+                Log.e("GitHubHandler", "IOException when getting commit from SHA1");
+                return null;
+            }
+        }
     }
 
 }

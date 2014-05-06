@@ -3,6 +3,7 @@ package se.group3.navigatorslittlehelper.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,8 @@ import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 
 public class ChooseRepositoryActivity extends Activity {
     private ChooseRepositoryCustomAdapter adapter;
+    private int[] colors = new int[] { 0xAAf6ffc8, 0xAA538d00 };
+    private LayoutInflater mInflater;
     private ListView listview;
     private ArrayList<String> repostringlist = new ArrayList<String>();
     private ArrayList<GHRepository> repoobjectlist = new ArrayList<GHRepository>();
