@@ -56,12 +56,10 @@ public class BranchFragment extends Fragment {
 
                 //Bundle would probably be a better approach, but for now our GitHubHandler
                 //is storing the choosen Branch due to GHBranch not being parcelable
-                /*
                 GitHubHandler.getInstance().setBranch(branchobject.get(i));
                 Fragment fragment = new ExpandedBranchFragment();
                 FragmentManager fragmentmanager = getFragmentManager();
                 fragmentmanager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                */
             }
         });
 
