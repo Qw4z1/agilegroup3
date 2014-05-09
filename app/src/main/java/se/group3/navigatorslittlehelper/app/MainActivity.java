@@ -1,22 +1,17 @@
 package se.group3.navigatorslittlehelper.app;
 
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import org.kohsuke.github.GitHub;
-
-import java.io.IOException;
-import java.util.Arrays;
 
 import se.group3.navigatorslittlehelper.app.adapter.DrawerItemCustomAdapter;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectDrawerItem;
@@ -55,18 +50,13 @@ public class MainActivity extends ActionBarActivity {
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         //App icon control code
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                R.drawable.ic_drawer,
-                R.string.drawer_open,
-                R.string.drawer_close
-        ) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 getActionBar().setTitle(mTitle);
             }
+
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -76,21 +66,8 @@ public class MainActivity extends ActionBarActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        selectItem(0);
 
-
-        /*try {
-            GitHub github = GitHub.connect();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        //This is how you do network related stuff, not allowed on main thread
-        /*Thread thread = new Thread() {
-            @Override
-            public void run() {
-                System.out.println(Arrays.toString(GitHubHandler.getInstance().getAllRepositories().keySet().toArray()));
-            }
-        };
-        thread.start();*/
     }
 
 
@@ -109,12 +86,14 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     //Needed for changing titles
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
+
     //Change the up caret icon before the app icon
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
