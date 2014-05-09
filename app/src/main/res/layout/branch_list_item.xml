@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Description"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="18sp"
-        android:textColor="#000000" />
+        style="@style/InfoListItems"/>
 
      <TextView
          android:id="@+id/branch_lastauthor"
@@ -22,9 +21,7 @@
          android:layout_below="@+id/branch_name"
          android:layout_alignParentLeft="true"
          android:text="LastAuthor"
-         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-         android:textSize="12sp"
-         android:textColor="#000000" />
+         style="@style/InfoListItems.Secondary" />
 
     <TextView
         android:id="@+id/branch_lastupdated"
@@ -33,9 +30,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/branch_lastauthor"
         android:text="LastUpdated"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="12sp"
-        android:textColor="#000000" />
+        style="@style/InfoListItems.Secondary" />
 
 
 </RelativeLayout>

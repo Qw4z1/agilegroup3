@@ -18,8 +18,8 @@
             android:ellipsize="marquee"
             android:singleLine="true"
             android:text="Reponame"
-            android:textSize="20sp"
-            android:autoText="false" />
+            android:autoText="false"
+            style="@style/InfoListItems"/>
 
         </TableRow>
     </TableLayout>
