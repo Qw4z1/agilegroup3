@@ -1,4 +1,8 @@
 <resources>
 
     <color name="commit_mesage_secondary">#727272</color>
-    </resources>
+    <color name="action_bar_text">#009FDA</color>
+    <color name="subtitles_text_color">#004A8A</color>
+    <color name="main_info_items">#1A67BA</color>
+    <color name="secondary_info_list_item">#646465</color>
+</resources>

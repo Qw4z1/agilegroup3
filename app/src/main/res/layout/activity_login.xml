@@ -36,7 +36,8 @@
         android:text="@string/login_button"
         android:id="@+id/login_button"
         android:layout_below="@+id/login_password_edittext"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        style="@style/Button"/>
 
     <Button
         android:layout_width="@dimen/login_widget_width"
@@ -44,7 +45,8 @@
         android:text="@string/login_forgot_password"
         android:id="@+id/login_forgot_password_button"
         android:layout_below="@+id/login_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        style="@style/Button"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -57,10 +59,12 @@
         android:layout_alignRight="@+id/login_username_edittext"
         android:layout_alignEnd="@+id/login_username_edittext"/>
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"/>
+        android:id="@+id/imageView2"
+        android:src="@drawable/ic_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
