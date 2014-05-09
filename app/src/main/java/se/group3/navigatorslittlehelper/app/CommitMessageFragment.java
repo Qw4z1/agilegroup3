@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.kohsuke.github.GHCommit;
@@ -37,6 +38,7 @@ public class CommitMessageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_commit_message, container, false);
         listview = (ListView) rootView.findViewById(R.id.commit_message_list_view);
+
 
         /*
         ArrayList<ObjectCommitMessageItem> commitlist = new ArrayList<ObjectCommitMessageItem>();
