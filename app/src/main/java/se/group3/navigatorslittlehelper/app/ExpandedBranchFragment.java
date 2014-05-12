@@ -1,7 +1,6 @@
 package se.group3.navigatorslittlehelper.app;
 
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,6 +14,7 @@ import org.kohsuke.github.GHCommitStatus;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import se.group3.navigatorslittlehelper.app.adapter.CommitMessageItemCustomAdapter;
 import se.group3.navigatorslittlehelper.app.adapter.ExpandedBranchItemCustomAdapter;
@@ -44,11 +44,11 @@ public class ExpandedBranchFragment extends Fragment {
                 expandedbranchitemlist.clear();
                 //I think, but I'm not 100%, that all information is already stored in the GHRepository in GitHubHandler, so to update that has to be updated
                 try {
-                    for (GHCommitStatus c : GitHubHandler.getInstance().getRepository().listCommitStatuses(GitHubHandler.getInstance().getBranch().getSHA1())) {
-                         expandedbranchitemlist.add(new ObjectExpandedBranchItem(c.getDescription(),c.getCreator().getName(),c.getCreatedAt()));
-                        //expandedbranchitemlist.add(new ObjectExpandedBranchItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate()));
-                    }
-                }catch (IOException e){
+                    GitHubHandler git = GitHubHandler.getInstance();
+                    String SHA1 = git.getBranch().getSHA1();
+                    GHCommit c = git.getCommitBySHA1(SHA1);
+                    expandedbranchitemlist.add(new ObjectExpandedBranchItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate()));
+                } catch (Exception e) {
                     Log.e("ExpandedBRanchFragment", "IOException when getting commitstatus");
                 }
                 getActivity().runOnUiThread(new Runnable() {
@@ -63,18 +63,19 @@ public class ExpandedBranchFragment extends Fragment {
         return rootView;
     }
 
-    private void addListItems(ArrayList<ObjectExpandedBranchItem> s){
+    private void addListItems(ArrayList<ObjectExpandedBranchItem> s) {
         adapter.addAll(s);
         this.updateList();
     }
-    private void removeListItems(ArrayList<ObjectExpandedBranchItem> s){
-        for (ObjectExpandedBranchItem m : s){
+
+    private void removeListItems(ArrayList<ObjectExpandedBranchItem> s) {
+        for (ObjectExpandedBranchItem m : s) {
             adapter.remove(m);
         }
         this.updateList();
     }
 
-    private void updateList(){
+    private void updateList() {
         //adapter.clear();
         adapter.notifyDataSetChanged();
         //listview.invalidateViews();
