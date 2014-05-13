@@ -48,6 +48,7 @@ public class ExpandedBranchFragment extends Fragment {
                     String SHA1 = git.getBranch().getSHA1();
                     GHCommit c = git.getCommitBySHA1(SHA1);
                     expandedbranchitemlist.add(new ObjectExpandedBranchItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate()));
+                    //addParents(c);
                 } catch (Exception e) {
                     Log.e("ExpandedBRanchFragment", "IOException when getting commitstatus");
                 }
@@ -62,6 +63,27 @@ public class ExpandedBranchFragment extends Fragment {
         thread.start();
         return rootView;
     }
+
+    private void addParents(GHCommit c){
+        try {
+            if(!c.getParents().isEmpty() && c.getParents() != null) {
+                for (GHCommit m : c.getParents()) {
+                    expandedbranchitemlist.add(new ObjectExpandedBranchItem(m.getCommitShortInfo().getMessage(), m.getCommitShortInfo().getCommitter().getName(), m.getCommitShortInfo().getCommitter().getDate()));
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addListItems(expandedbranchitemlist);
+                        }
+                    });
+                    addParents(m);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     private void addListItems(ArrayList<ObjectExpandedBranchItem> s) {
         adapter.addAll(s);
