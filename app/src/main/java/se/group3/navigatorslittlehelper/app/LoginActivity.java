@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,7 +40,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         String username = mUsernameEdittext.getText().toString();
         String password = mPasswordEdittext.getText().toString();
 
-        if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+        if(LoginHelper.isValidPassword(password) && LoginHelper.isValidUsername(username)) {
             new LoginTask().execute(username, password);
         }
     }
@@ -71,14 +70,6 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         @Override
         protected Boolean doInBackground(String... params) {
            return GitHubHandler.getInstance().connectUsingPassword(params[0],params[1]);
-           /* boolean returnValue;
-            try {
-                GitHub github = GitHub.connectUsingPassword(params[0], params[1]);
-                returnValue = github.isCredentialValid();
-            } catch (IOException e) {
-                return false;
-            }
-            return returnValue;*/
         }
 
         @Override
