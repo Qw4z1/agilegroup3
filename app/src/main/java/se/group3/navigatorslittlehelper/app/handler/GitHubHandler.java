@@ -94,6 +94,7 @@ public class GitHubHandler {
     public GHBranch getBranch(){
         return this.branch;
     }
+    public GitHub getGitHub(){return this.github;}
 
 
 }

@@ -63,7 +63,7 @@ public class ExpandedBranchFragment extends Fragment {
         thread.start();
         return rootView;
     }
-
+    /*
     private void addParents(GHCommit c){
         try {
             if(!c.getParents().isEmpty() && c.getParents() != null) {
@@ -82,7 +82,7 @@ public class ExpandedBranchFragment extends Fragment {
             e.printStackTrace();
         }
     }
-
+    */
 
 
     private void addListItems(ArrayList<ObjectExpandedBranchItem> s) {
