@@ -15,6 +15,7 @@ public class GitHubHandler {
     private static GitHubHandler instance = null;
     private static GitHub github = null;
     private static GHRepository repo = null;
+    private static GHCommit GHcommit = null;
 
     private GitHubHandler() { }
 
@@ -88,5 +89,12 @@ public class GitHubHandler {
         }
     }
 
+    public static void setGHcommit(GHCommit GHcommit) {
+        GitHubHandler.GHcommit = GHcommit;
+    }
+
+    public static GHCommit getGHcommit() {
+        return GHcommit;
+    }
 }
 

@@ -15,7 +15,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/login_username_edittext"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:text="abelgv1@gmail.com" />
 
 
     <EditText
@@ -26,8 +27,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:layout_below="@+id/login_username_edittext"
-        android:id="@+id/login_password_edittext"
-        />
+        android:id="@+id/login_password_edittext" />
 
 
     <Button

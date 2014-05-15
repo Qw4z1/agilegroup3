@@ -71,10 +71,12 @@ public class ChooseRepositoryActivity extends Activity {
                         addListItems(repoitems);
                     }
                 });
+
             }
         };
         thread.start();
     }
+
 
 
     public void addListItems(ArrayList<ObjectChooseRepositoryItem> a){
