@@ -1,6 +1,7 @@
+
 package se.group3.navigatorslittlehelper.app;
 
-
+/*
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,10 +27,13 @@ import se.group3.navigatorslittlehelper.app.adapter.IssueTrackerItemCustomAdapte
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageItem;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectIssueTrackerItem;
 import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
+*/
 
+import android.support.v4.app.Fragment;
 
 public class IssueTrackerFragment extends Fragment {
-
+}
+/*
     private ListView listview;
     private IssueTrackerItemCustomAdapter adapter;
     final ArrayList<ObjectIssueTrackerItem> issueitemlist = new ArrayList<ObjectIssueTrackerItem>();
@@ -43,7 +47,8 @@ public class IssueTrackerFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_issue_tracker, container, false);
         listview = (ListView) rootView.findViewById(R.id.issue_message_list_view);
 
-      /*  listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      */
+/*  listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                // GitHubHandler.getInstance().getRepository().getCommit()listIssues(GHIssueState.CLOSED)
@@ -53,7 +58,8 @@ public class IssueTrackerFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        */
+        *//*
+
 
         adapter = new IssueTrackerItemCustomAdapter(getActivity(), R.layout.issue_message_list_item, new ArrayList<ObjectIssueTrackerItem>());
         listview.setAdapter(adapter);
@@ -97,3 +103,4 @@ public class IssueTrackerFragment extends Fragment {
         //listview.invalidateViews();
     }
 }
+*/

@@ -42,6 +42,8 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
 
         if(LoginHelper.isValidPassword(password) && LoginHelper.isValidUsername(username)) {
             new LoginTask().execute(username, password);
+        }else{
+            Toast.makeText(LoginActivity.this, "Wrong Credentials", Toast.LENGTH_LONG).show();
         }
     }
 
