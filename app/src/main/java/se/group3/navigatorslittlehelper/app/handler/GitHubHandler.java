@@ -22,6 +22,7 @@ public class GitHubHandler {
     private static GitHub github = null;
     private static GHRepository repo = null;
     private static GHBranch branch = null;
+    private static GHCommit GHcommit = null;
 
     private GitHubHandler() { }
 
@@ -102,6 +103,7 @@ public class GitHubHandler {
     }
 
 
+
     public List<GHPullRequest> getPullRequest() {
         PagedIterable<GHPullRequest> pull = repo.listPullRequests(GHIssueState.OPEN);
         if(pull!=null){
@@ -109,6 +111,15 @@ public class GitHubHandler {
         }
         Log.d(TAG,"Returned empty pull request list");
         return new LinkedList<GHPullRequest>();
+    }
+
+    public static void setGHcommit(GHCommit GHcommit) {
+        GitHubHandler.GHcommit = GHcommit;
+    }
+
+    public static GHCommit getGHcommit() {
+        return GHcommit;
+
     }
 }
 

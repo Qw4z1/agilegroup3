@@ -75,11 +75,13 @@ public class ChooseRepositoryActivity extends Activity {
                     }
                 });
                 dialog.dismiss();
+
             }
         };
         thread.start();
 
         }
+
 
 
     public void addListItems(ArrayList<ObjectChooseRepositoryItem> a){
