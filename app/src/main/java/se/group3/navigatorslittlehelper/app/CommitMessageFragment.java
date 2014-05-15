@@ -1,5 +1,6 @@
 package se.group3.navigatorslittlehelper.app;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -34,8 +35,10 @@ public class CommitMessageFragment extends Fragment {
     public CommitMessageFragment() {
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //ProgressDialog dialog = ProgressDialog.show(CommitMessageFragment.this, "Please Wait", "Loading..", true);
         final View rootView = inflater.inflate(R.layout.fragment_commit_message, container, false);
         listview = (ListView) rootView.findViewById(R.id.commit_message_list_view);
 
