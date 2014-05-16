@@ -78,12 +78,14 @@ public class BranchFragment extends Fragment {
                     GHCommit c = getLastCommit(b);
                     branchitemlist.add(new ObjectBranchItem(b.getName(),c.getCommitShortInfo().getAuthor().getName(), c.getCommitShortInfo().getCommitter().getDate()));
                 }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        addListItems(branchitemlist);
-                    }
-                });
+                if(getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addListItems(branchitemlist);
+                        }
+                    });
+                }
             }
         };
         thread.start();

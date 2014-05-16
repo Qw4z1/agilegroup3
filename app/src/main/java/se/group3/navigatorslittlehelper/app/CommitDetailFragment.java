@@ -94,16 +94,17 @@ public class CommitDetailFragment extends Fragment {
 
                 }
                 Log.d(TAG, " List size: " + commitfileitemlist.size() );
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(TAG, "Add list items List size: " + commitfileitemlist.size() );
-                        addListItems(commitfileitemlist);
+                if(getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d(TAG, "Add list items List size: " + commitfileitemlist.size());
+                            addListItems(commitfileitemlist);
 
-                        commitfileitemlist.clear();
-                    }
-                });
-
+                            commitfileitemlist.clear();
+                        }
+                    });
+                }
             }
         };
         thread.start();

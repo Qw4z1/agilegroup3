@@ -47,12 +47,14 @@ public class PullRequestFragment extends Fragment {
                     System.out.println("User tostring: "+p.getUser().toString());
                     pullrequestitemlist.add(new ObjectPullRequestItem(p.getTitle(), p.getUser().toString(), p.getCreatedAt()));
                 }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        addListItems(pullrequestitemlist);
-                    }
-                });
+                if(getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addListItems(pullrequestitemlist);
+                        }
+                    });
+                }
             }
         };
         thread.start();

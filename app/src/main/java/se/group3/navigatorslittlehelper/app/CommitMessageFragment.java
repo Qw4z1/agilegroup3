@@ -61,12 +61,14 @@ public class CommitMessageFragment extends Fragment {
                         commitmessageitemlist.add(new ObjectCommitMessageItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate(),c.getSHA1()));
 
                 }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        addListItems(commitmessageitemlist);
-                    }
-                });
+                if(getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addListItems(commitmessageitemlist);
+                        }
+                    });
+                }
 
                 commitmessageitemlist.clear();
                 GHCommit c1= GitHubHandler.getInstance().getRepository().listCommits().asList().get(1);

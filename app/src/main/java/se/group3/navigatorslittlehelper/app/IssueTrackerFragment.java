@@ -45,12 +45,14 @@ public class IssueTrackerFragment extends Fragment {
                 for (GHIssue c : GitHubHandler.getInstance().getIssues()) {
                     issueitemlist.add(new ObjectIssueTrackerItem(c.getTitle(),c.getUser().toString(),c.getUpdatedAt()));
                 }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        addListItems(issueitemlist);
-                    }
-                });
+                if(getActivity()!=null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addListItems(issueitemlist);
+                        }
+                    });
+                }
             }
         };
         thread.start();
