@@ -42,7 +42,7 @@ public class CommitMessageFragment extends Fragment {
                 CommitDetailFragment fragment=CommitDetailFragment.newInstance((ObjectCommitMessageItem) adapterView.getAdapter().getItem(i));
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 
-                ft.replace(R.id.content_frame, fragment);
+                ft.add(R.id.content_frame, fragment);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 ft.addToBackStack(null);
                 ft.commit();

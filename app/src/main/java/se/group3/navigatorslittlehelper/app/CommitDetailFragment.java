@@ -2,16 +2,12 @@ package se.group3.navigatorslittlehelper.app;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.kohsuke.github.GHCommit;
 
@@ -21,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import se.group3.navigatorslittlehelper.app.adapter.CommitFileItemCustomAdapter;
-import se.group3.navigatorslittlehelper.app.adapter.CommitMessageItemCustomAdapter;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitFileItem;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageItem;
 import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
@@ -52,8 +47,6 @@ public class CommitDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        getActivity().setContentView(R.layout.activity_main);
         Bundle args = getArguments();
 
         author1 = args.getString(AUTHOR_ARGUMENT);

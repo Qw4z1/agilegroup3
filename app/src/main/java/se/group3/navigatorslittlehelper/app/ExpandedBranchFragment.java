@@ -10,15 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import org.kohsuke.github.GHCommit;
 import org.kohsuke.github.GHCommitStatus;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import se.group3.navigatorslittlehelper.app.adapter.CommitMessageItemCustomAdapter;
 import se.group3.navigatorslittlehelper.app.adapter.ExpandedBranchItemCustomAdapter;
-import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageItem;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectExpandedBranchItem;
 import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 
@@ -42,11 +39,9 @@ public class ExpandedBranchFragment extends Fragment {
             @Override
             public void run() {
                 expandedbranchitemlist.clear();
-                //I think, but I'm not 100%, that all information is already stored in the GHRepository in GitHubHandler, so to update that has to be updated
                 try {
                     for (GHCommitStatus c : GitHubHandler.getInstance().getRepository().listCommitStatuses(GitHubHandler.getInstance().getBranch().getSHA1())) {
                          expandedbranchitemlist.add(new ObjectExpandedBranchItem(c.getDescription(),c.getCreator().getName(),c.getCreatedAt()));
-                        //expandedbranchitemlist.add(new ObjectExpandedBranchItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate()));
                     }
                 }catch (IOException e){
                     Log.e("ExpandedBRanchFragment", "IOException when getting commitstatus");
