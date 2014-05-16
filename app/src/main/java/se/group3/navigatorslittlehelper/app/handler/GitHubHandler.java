@@ -5,6 +5,7 @@ import android.util.Log;
 
 import org.kohsuke.github.GHBranch;
 import org.kohsuke.github.GHCommit;
+import org.kohsuke.github.GHIssue;
 import org.kohsuke.github.GHIssueState;
 import org.kohsuke.github.GHPullRequest;
 import org.kohsuke.github.GHRepository;
@@ -120,6 +121,15 @@ public class GitHubHandler {
     public static GHCommit getGHcommit() {
         return GHcommit;
 
+    }
+
+    public List<GHIssue> getIssues() {
+        PagedIterable<GHIssue> issue = repo.listIssues(GHIssueState.OPEN);
+        if (issue != null) {
+            return issue.asList();
+        }
+        Log.d(TAG, "Returned empty issue list");
+        return new LinkedList<GHIssue>();
     }
 }
 
