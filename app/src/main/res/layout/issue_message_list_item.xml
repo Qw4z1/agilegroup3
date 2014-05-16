@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F0FFFF" >
+    android:background="@android:color/transparent" >
 
 
 
@@ -15,8 +15,7 @@
         android:ellipsize="end"
         android:scrollHorizontally="true"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="18sp"
-        android:textColor="#000000" />
+        style="@style/InfoListItems" />
 
 
 
@@ -41,8 +40,7 @@
         android:layout_below="@+id/issue_message_description"
         android:text="Time"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="12sp"
-        android:textColor="@color/commit_mesage_secondary" />
+        style="@style/InfoListItems.Secondary" />
     <!--
         <TextView
             android:id="@+id/text"
