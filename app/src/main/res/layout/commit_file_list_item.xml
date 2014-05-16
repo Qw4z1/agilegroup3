@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/activatedBackgroundIndicator"
+    android:background="@android:color/transparent"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:padding="10dp" >
 
@@ -11,9 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="name"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="18sp"
-        android:textColor="#000000" />
+        style="@style/InfoListItems" />
 
      <TextView
          android:id="@+id/commit_message_totalChanges"
@@ -22,9 +20,7 @@
          android:layout_below="@+id/commit_message_name"
          android:layout_alignParentLeft="true"
          android:text="Total Changes"
-         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-         android:textSize="12sp"
-         android:textColor="#000000" />
+         style="@style/InfoListItems.Secondary" />
 
     <TextView
         android:id="@+id/commit_message_deletions"
@@ -33,9 +29,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/commit_message_name"
         android:text="Detetions"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="12sp"
-        android:textColor="#000000"
+        style="@style/InfoListItems.Secondary"
         android:layout_marginRight="80dp" />
 
     <TextView
@@ -45,8 +39,6 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/commit_message_name"
         android:text="Updates"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="12sp"
-        android:textColor="#000000" />
+        style="@style/InfoListItems.Secondary" />
 
 </RelativeLayout>
