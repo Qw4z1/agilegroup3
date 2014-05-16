@@ -72,8 +72,6 @@ public class CommitMessageFragment extends Fragment {
 
                 commitmessageitemlist.clear();
                 GHCommit c1= GitHubHandler.getInstance().getRepository().listCommits().asList().get(1);
-                System.out.println("*************** "+ c1.getCommitShortInfo().getMessage() + c1.getCommitShortInfo().getCommitter().getName());
-                System.out.println("*************** "+ c1.getCommitShortInfo().getCommentCount() + c1.getSHA1());
 
             }
         };

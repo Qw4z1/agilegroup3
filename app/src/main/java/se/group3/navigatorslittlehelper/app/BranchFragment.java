@@ -1,9 +1,7 @@
 package se.group3.navigatorslittlehelper.app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +11,14 @@ import android.widget.ListView;
 
 import org.kohsuke.github.GHBranch;
 import org.kohsuke.github.GHCommit;
-import org.kohsuke.github.GHUser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import se.group3.navigatorslittlehelper.app.adapter.BranchItemCustomAdapter;
-import se.group3.navigatorslittlehelper.app.adapter.CommitMessageItemCustomAdapter;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectBranchItem;
-import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageItem;
 import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 
 public class BranchFragment extends Fragment {
@@ -51,9 +45,6 @@ public class BranchFragment extends Fragment {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                System.out.println("String at "+i+": "+branchkey.get(i));
-                System.out.println("Object at "+i+": "+branchobject.get(i));
-
                 //Bundle would probably be a better approach, but for now our GitHubHandler
                 //is storing the choosen Branch due to GHBranch not being parcelable
                 GitHubHandler.getInstance().setBranch(branchobject.get(i));
@@ -110,9 +101,7 @@ public class BranchFragment extends Fragment {
     }
 
     private void updateList(){
-        //adapter.clear();
         adapter.notifyDataSetChanged();
-        //listview.invalidateViews();
     }
 
 }
