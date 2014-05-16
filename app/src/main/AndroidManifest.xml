@@ -25,7 +25,8 @@
         </activity>
         <activity
             android:name="se.group3.navigatorslittlehelper.app.ChooseRepositoryActivity"
-            android:label="@string/title_activity_choose_repository" >
+            android:label="@string/title_activity_choose_repository"
+            android:theme="@style/AppTheme" >
         </activity>
     </application>
 

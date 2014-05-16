@@ -4,7 +4,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/white">
+                android:background="@drawable/bg_sky_blue_gradient">
 
 
 
@@ -15,7 +15,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/login_username_edittext"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:text="abelgv1@gmail.com" />
 
 
     <EditText
@@ -26,8 +27,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:layout_below="@+id/login_username_edittext"
-        android:id="@+id/login_password_edittext"
-        />
+        android:id="@+id/login_password_edittext" />
 
 
     <Button
@@ -36,7 +36,8 @@
         android:text="@string/login_button"
         android:id="@+id/login_button"
         android:layout_below="@+id/login_password_edittext"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        style="@style/Button"/>
 
     <Button
         android:layout_width="@dimen/login_widget_width"
@@ -44,23 +45,26 @@
         android:text="@string/login_forgot_password"
         android:id="@+id/login_forgot_password_button"
         android:layout_below="@+id/login_button"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        style="@style/Button"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src="@drawable/ic_github_logo"
+        android:src="@drawable/web_hi_res_512"
         android:layout_above="@+id/login_username_edittext"
         android:layout_alignLeft="@+id/login_username_edittext"
         android:layout_alignStart="@+id/login_username_edittext"
         android:layout_alignRight="@+id/login_username_edittext"
         android:layout_alignEnd="@+id/login_username_edittext"/>
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"/>
+        android:id="@+id/imageView2"
+        android:src="@drawable/text_branches"
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F0FFFF" >
+    android:background="@android:color/transparent">
 
 
 
@@ -14,9 +14,7 @@
         android:lines="2"
         android:ellipsize="end"
         android:scrollHorizontally="true"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="18sp"
-        android:textColor="#000000" />
+        style="@style/InfoListItems" />
 
 
 
@@ -27,9 +25,7 @@
          android:layout_below="@+id/commit_message_description"
          android:layout_alignParentLeft="true"
          android:text="Author"
-         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-         android:textSize="12sp"
-         android:textColor="@color/commit_mesage_secondary" />
+         style="@style/InfoListItems.Secondary" />
 
 
     <TextView
@@ -39,22 +35,8 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/commit_message_description"
         android:text="Time"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textSize="12sp"
-        android:textColor="@color/commit_mesage_secondary" />
-<!--
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:lines="2"
-        android:ellipsize="end"
-        android:scrollHorizontally="true"
-        android:singleLine="false" /> -->
+        style="@style/InfoListItems.Secondary" />
 
-  <!--  <TextView  style="@style/TextColor" /> -->
-   <!--   android:inputType="text" -->
 
 
 </RelativeLayout>

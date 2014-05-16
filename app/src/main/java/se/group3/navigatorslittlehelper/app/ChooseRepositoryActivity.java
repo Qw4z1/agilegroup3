@@ -1,6 +1,7 @@
 package se.group3.navigatorslittlehelper.app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ public class ChooseRepositoryActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final ProgressDialog dialog = ProgressDialog.show(ChooseRepositoryActivity.this, "Please Wait", "Loading..", true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_repository);
 
@@ -43,6 +45,7 @@ public class ChooseRepositoryActivity extends Activity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                 System.out.println("String at "+i+": "+repostringlist.get(i));
                 System.out.println("Object at "+i+": "+repoobjectlist.get(i));
                 GitHubHandler.getInstance().setRepository(repoobjectlist.get(i));
@@ -71,10 +74,14 @@ public class ChooseRepositoryActivity extends Activity {
                         addListItems(repoitems);
                     }
                 });
+                dialog.dismiss();
+
             }
         };
         thread.start();
-    }
+
+        }
+
 
 
     public void addListItems(ArrayList<ObjectChooseRepositoryItem> a){

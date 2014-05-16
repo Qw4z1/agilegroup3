@@ -2,7 +2,42 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/AppTheme.Wdiget.Actionbar</item>
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="AppTheme.Wdiget.Actionbar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/bg_actionbar</item>
+        <item name="android:titleTextStyle">@style/AppTheme.Widget.ActionBar.Title</item>
+    </style>
+    <style name="AppTheme.Widget.ActionBar.Title"
+           parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/action_bar_text</item>
+    </style>
+
+    <style name="CommitMessage.Secondary" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/commit_mesage_secondary</item>
+    </style>
+
+    <style name="Subtitles" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/subtitles_text_color</item>
+    </style>
+
+    <style name="InfoListItems" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/main_info_items</item>
+        <item name="android:textSize">@dimen/info_list_item_text_size</item>
+    </style>
+
+    <style name="InfoListItems.Secondary" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/secondary_info_list_item</item>
+        <item name="android:textSize">@dimen/secondary_text_size</item>
+    </style>
+
+    <style name="Button" parent="@android:style/Widget">
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:textColor">@color/subtitles_text_color</item>
+    </style>
+
+    <dimen name="secondary_text_size">12sp</dimen>
+    <dimen name="info_list_item_text_size">18sp</dimen>
 </resources>

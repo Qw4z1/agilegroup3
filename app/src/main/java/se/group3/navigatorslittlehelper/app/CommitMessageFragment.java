@@ -1,28 +1,20 @@
 package se.group3.navigatorslittlehelper.app;
 
-import android.app.ProgressDialog;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.kohsuke.github.GHCommit;
-import org.kohsuke.github.GHRepository;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.Map;
 
 import se.group3.navigatorslittlehelper.app.adapter.CommitMessageItemCustomAdapter;
-import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectChooseRepositoryItem;
 import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageItem;
 import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 
@@ -43,13 +35,20 @@ public class CommitMessageFragment extends Fragment {
         listview = (ListView) rootView.findViewById(R.id.commit_message_list_view);
 
 
-        /*
-        ArrayList<ObjectCommitMessageItem> commitlist = new ArrayList<ObjectCommitMessageItem>();
-        commitlist.add(new ObjectCommitMessageItem("Commit message 1","Author 1",new Date(114, 3, 11, 8, 20, 20)));
-        commitlist.add(new ObjectCommitMessageItem("Commit message 2","Author 2",new Date(114, 3, 11, 6, 20, 20)));
-        commitlist.add(new ObjectCommitMessageItem("Commit message 3","Author 3",new Date(114, 3, 11, 4, 20, 20)));
-        commitlist.add(new ObjectCommitMessageItem("Commit message 4","Author 4",new Date(114, 3, 11, 9, 20, 20)));
-        */
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                CommitDetailFragment fragment=CommitDetailFragment.newInstance((ObjectCommitMessageItem) adapterView.getAdapter().getItem(i));
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+
+                ft.replace(R.id.content_frame, fragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+
 
         adapter = new CommitMessageItemCustomAdapter(getActivity(), R.layout.commit_message_list_item, new ArrayList<ObjectCommitMessageItem>());
         listview.setAdapter(adapter);
@@ -57,10 +56,10 @@ public class CommitMessageFragment extends Fragment {
         Thread thread = new Thread() {
             @Override
             public void run() {
-                commitmessageitemlist.clear();
                 //I think, but I'm not 100%, that all information is already stored in the GHRepository in GitHubHandler, so to update that has to be updated
                 for (GHCommit c : GitHubHandler.getInstance().getRepository().listCommits().asList()) {
-                        commitmessageitemlist.add(new ObjectCommitMessageItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate()));
+                        commitmessageitemlist.add(new ObjectCommitMessageItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate(),c.getSHA1()));
+
                 }
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -68,6 +67,12 @@ public class CommitMessageFragment extends Fragment {
                         addListItems(commitmessageitemlist);
                     }
                 });
+
+                commitmessageitemlist.clear();
+                GHCommit c1= GitHubHandler.getInstance().getRepository().listCommits().asList().get(1);
+                System.out.println("*************** "+ c1.getCommitShortInfo().getMessage() + c1.getCommitShortInfo().getCommitter().getName());
+                System.out.println("*************** "+ c1.getCommitShortInfo().getCommentCount() + c1.getSHA1());
+
             }
         };
         thread.start();
@@ -88,8 +93,6 @@ public class CommitMessageFragment extends Fragment {
     }
 
     private void updateList(){
-        //adapter.clear();
         adapter.notifyDataSetChanged();
-        //listview.invalidateViews();
     }
 }
