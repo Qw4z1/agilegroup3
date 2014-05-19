@@ -3,6 +3,7 @@ package se.group3.navigatorslittlehelper.app;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class BranchFragment extends Fragment {
                 GitHubHandler.getInstance().setBranch(branchobject.get(i));
                 Fragment fragment = new ExpandedBranchFragment();
                 FragmentManager fragmentmanager = getFragmentManager();
-                fragmentmanager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                fragmentmanager.beginTransaction().setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE).add(R.id.content_frame, fragment).commit();
             }
         });
 

@@ -4,6 +4,7 @@ package se.group3.navigatorslittlehelper.app;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import se.group3.navigatorslittlehelper.app.adapterobjects.ObjectCommitMessageIt
 import se.group3.navigatorslittlehelper.app.handler.GitHubHandler;
 
 public class CommitMessageFragment extends Fragment {
+    public static final String TAG = CommitMessageFragment.class.getSimpleName();
 
     private ListView listview;
     private CommitMessageItemCustomAdapter adapter;
@@ -59,19 +61,22 @@ public class CommitMessageFragment extends Fragment {
                 //I think, but I'm not 100%, that all information is already stored in the GHRepository in GitHubHandler, so to update that has to be updated
                 for (GHCommit c : GitHubHandler.getInstance().getRepository().listCommits().asList()) {
                         commitmessageitemlist.add(new ObjectCommitMessageItem(c.getCommitShortInfo().getMessage(), c.getCommitShortInfo().getCommitter().getName(), c.getCommitShortInfo().getCommitter().getDate(),c.getSHA1()));
+                    Log.d(TAG, "listCommits() size: " + commitmessageitemlist.size());
 
                 }
                 if(getActivity()!=null) {
                     getActivity().runOnUiThread(new Runnable() {
+
                         @Override
                         public void run() {
+                            Log.d(TAG, "Add all");
+                            Log.d(TAG, "CommitMessageItemList size: " + commitmessageitemlist.size());
                             addListItems(commitmessageitemlist);
                         }
                     });
                 }
 
                 commitmessageitemlist.clear();
-                GHCommit c1= GitHubHandler.getInstance().getRepository().listCommits().asList().get(1);
 
             }
         };
